@@ -1,17 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>example</title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but example doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
-</html>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<div id="navBar">
+  <div class="nav-bar">
+    <div class="nombreApp">{{ nombreApp }}</div>
+    <div class="username">{{ firstname + ' ' + lastname}}</div>
+  </div>
+</div>
+
+<div id="app">
+    <div class="cart">
+      <p>Carrito ({{ cart.length }})</p>
+    </div>
+
+  <product :premium="premium" @add-to-cart="updateCart" @rest-to-cart="removeCart"></product>  
+</div> 
+
+<div id="app-2">
+    <span v-bind:title="message" v-if="seen" v-on:click="reverseMessage">
+      {{ message }}
+    </span>
+</div>
+
+<div id="app-3">
+  <ol>
+    <!-- Create an instance of the todo-item component -->
+    <todo-item
+      v-for="item in groceryList"
+      :todo="item"
+      :key="item.id"
+    ></todo-item>
+</div>
+
+ <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
